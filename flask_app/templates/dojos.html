@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>dojos</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">
+</head>
+<body>
+<div class="container">
+    <div class="row">
+        <div class="col">
+        <h1>New Dojo</h1>
+        <form action="/dojos/new_dojo"  method="POST">
+        <label class="form-label" for="name">Name:</label>
+        <input class="form-control" type="text" name="name" id="name" placeholder="Please add your Dojo...">
+        <div class="create">
+            <button type="submit" class="btn btn-light mt-2">Create</button>
+        </div>
+        </form>
+        </div>
+        <div class="col">
+            <h1>All Dojos</h1>
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th></th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for dojo in dojo_list: %}
+                    <tr>
+                        <td><a href="/dojos/{{dojo.id}}">{{dojo.name}}</a></td>
+                    </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+            <div class="addninja">
+                <button class="btn btn-light"><a href="/ninjas">Add Ninja</a></button>
+        </div>
+    </div>
+    </div>
+</div>
+</body>
+</html>
